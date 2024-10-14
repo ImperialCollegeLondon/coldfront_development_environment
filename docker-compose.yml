@@ -1,0 +1,31 @@
+services:
+  app:
+    build: .
+    command:
+      - bash
+      - -c
+      - |
+        coldfront migrate
+        coldfront runserver 0:8000
+    environment:
+      - DEBUG=True
+      - DB_URL=sqlite:////db/coldfront.db
+      - OIDC_OP_JWKS_ENDPOINT
+      - OIDC_RP_SIGN_ALGO
+      - OIDC_RP_CLIENT_ID
+      - OIDC_RP_CLIENT_SECRET
+      - OIDC_OP_AUTHORIZATION_ENDPOINT
+      - OIDC_OP_TOKEN_ENDPOINT
+      - OIDC_OP_USER_ENDPOINT
+      - PLUGIN_AUTH_OIDC
+    volumes:
+      - ./local_settings.py:/usr/src/coldfront/local_settings.py:ro
+      - ./imperial_coldfront_plugin/:/usr/src/imperial_coldfront_plugin/
+      - ./coldfront_overrides/urls.py:/usr/src/coldfront/coldfront/config/urls.py
+      - ./coldfront_overrides/settings.py:/usr/src/coldfront/coldfront/config/settings.py
+      - ./:/usr/src/app/
+      - db:/db
+    ports:
+      - 127.0.0.1:8000:8000
+volumes:
+  db:
