@@ -1,6 +1,3 @@
-[submodule "coldfront"]
-	path = coldfront
-	url = https://github.com/ubccr/coldfront.git
 [submodule "imperial_coldfront_plugin"]
 	path = imperial_coldfront_plugin
 	url = https://github.com/ImperialCollegeLondon/imperial_coldfront_plugin.git

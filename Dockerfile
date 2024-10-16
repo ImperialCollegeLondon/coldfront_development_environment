@@ -1,15 +1,16 @@
 FROM python:3.11-slim
 
-ADD coldfront /usr/src/coldfront
 ADD imperial_coldfront_plugin /usr/src/imperial_coldfront_plugin
-ADD requirements.txt /usr/src/requirements.txt
 WORKDIR /usr/src/
-RUN pip install -r requirements.txt
+RUN pip install -r imperial_coldfront_plugin/requirements.txt && pip install -e imperial_coldfront_plugin
 RUN mkdir /etc/coldfront
+ADD coldfront_overrides/urls.py /usr/local/lib/python3.11/site-packages/coldfront/config/urls.py
+ADD coldfront_overrides/settings.py /usr/local/lib/python3.11/site-packages/coldfront/config/settings.py
 
 RUN mkdir /db && chown nobody:nogroup /db
 VOLUME /db
 VOLUME /srv/coldcront/static
+
+# imperial specific settings
 ADD local_settings.py /etc/coldfront/local_settings.py
-ADD . /usr/src/app/
 USER nobody
