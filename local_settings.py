@@ -36,10 +36,5 @@ OIDC_RP_SCOPES = ENV.str("OIDC_RP_SCOPES")
 
 TIME_ZONE = "Europe/London"
 
-# doesn't currently do anything until next coldfront release
-RESEARCH_OUTPUT_ENABLE = False
-GRANT_ENABLE = False
-PUBLICATION_ENABLE = False
-
 # enable our plugin
 PLUGIN_ICL = True
