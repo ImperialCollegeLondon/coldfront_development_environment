@@ -28,7 +28,7 @@ except ValueError:
 
 # Enable loading of scopes from environment to be consistent with other OIDC
 # settings. Coldfront explicitly enables the others but not this one.
-OIDC_RP_SCOPES = ENV.str("OIDC_RP_SCOPES")
+OIDC_RP_SCOPES = ENV.str("OIDC_RP_SCOPES", default="")
 
 # ----------------------
 # MISCELLANEOUS SETTINGS
