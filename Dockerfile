@@ -6,6 +6,7 @@ RUN pip install -r imperial_coldfront_plugin/requirements.txt && pip install -e 
 RUN mkdir /etc/coldfront
 ADD coldfront_overrides/urls.py /usr/local/lib/python3.11/site-packages/coldfront/config/urls.py
 ADD coldfront_overrides/settings.py /usr/local/lib/python3.11/site-packages/coldfront/config/settings.py
+ADD coldfront_overrides/plugin_settings.py /usr/local/lib/python3.11/site-packages/coldfront/config/plugins/imperial.py
 
 RUN mkdir /db && chown nobody:nogroup /db
 VOLUME /db
