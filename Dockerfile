@@ -19,6 +19,7 @@ ADD coldfront_overrides/allocation_detail.html /usr/local/lib/python3.11/site-pa
 ADD coldfront_overrides/project_add_users.html /usr/local/lib/python3.11/site-packages/coldfront/templates/project/project_add_users.html
 ADD coldfront_overrides/allocation_add_users.html /usr/local/lib/python3.11/site-packages/coldfront/templates/allocation/allocation_add_users.html
 ADD coldfront_overrides/allocation_remove_users.html /usr/local/lib/python3.11/site-packages/coldfront/templates/allocation/allocation_remove_users.html
+ADD coldfront_overrides/static/ /usr/share/coldfront/site/static/
 
 RUN mkdir /db && chown nobody:nogroup /db
 VOLUME /db
