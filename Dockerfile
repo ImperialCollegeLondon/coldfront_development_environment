@@ -7,6 +7,7 @@ RUN mkdir /etc/coldfront
 ADD coldfront_overrides/urls.py /usr/local/lib/python3.11/site-packages/coldfront/config/urls.py
 ADD coldfront_overrides/settings.py /usr/local/lib/python3.11/site-packages/coldfront/config/settings.py
 ADD coldfront_overrides/plugin_settings.py /usr/local/lib/python3.11/site-packages/coldfront/config/plugins/imperial.py
+ADD coldfront_overrides/static/ /usr/share/coldfront/site/static/
 
 RUN mkdir /db && chown nobody:nogroup /db
 VOLUME /db

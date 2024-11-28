@@ -38,3 +38,5 @@ TIME_ZONE = "Europe/London"
 
 # enable our plugin
 PLUGIN_ICL = True
+
+CENTER_NAME = "RCS Self-Service Portal"
