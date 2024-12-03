@@ -17,7 +17,7 @@ services:
       - OIDC_OP_AUTHORIZATION_ENDPOINT
       - OIDC_OP_TOKEN_ENDPOINT
       - OIDC_OP_USER_ENDPOINT
-      - "OIDC_RP_SCOPES=openid email profile"
+      - "OIDC_RP_SCOPES=openid email profile User.Read"
       - PLUGIN_AUTH_OIDC
       - PLUGIN_ICL=True
     volumes:
