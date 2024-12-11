@@ -1,5 +1,12 @@
 FROM python:3.11-slim
 
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libldap2-dev \
+    libsasl2-dev \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 ADD imperial_coldfront_plugin /usr/src/imperial_coldfront_plugin
 WORKDIR /usr/src/
 RUN pip install -r imperial_coldfront_plugin/requirements.txt && pip install -e imperial_coldfront_plugin
