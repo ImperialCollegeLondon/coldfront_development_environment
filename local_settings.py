@@ -38,3 +38,5 @@ TIME_ZONE = "Europe/London"
 
 # enable our plugin
 PLUGIN_ICL = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
