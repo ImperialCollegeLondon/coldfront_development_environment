@@ -4,6 +4,7 @@ MUST BE EXTENDED FOR PRODUCTION DEPLOYMENT.
 """
 
 from coldfront.config.env import ENV
+from coldfront.config.base import DEBUG
 
 # -------------
 # AUTH SETTINGS
@@ -39,4 +40,22 @@ TIME_ZONE = "Europe/London"
 # enable our plugin
 PLUGIN_ICL = True
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+Q_CLUSTER = {
+    "name": "Coldfront",
+    "workers": 1,
+    "timeout": 60,
+    "retry": 60,
+    "queue_limit": 50,
+    "bulk": 10,
+    "orm": "default",
+    "save_limit": 250,
+    "sync": DEBUG,
+    "ack_failures": True,
+    "orm": "default",
+    "catch_up": False,
+    "label": "Django Q",
+}
+
+SECRET_KEY = "tetetetetetatotet"
