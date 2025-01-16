@@ -18,6 +18,7 @@ services:
       - OIDC_OP_TOKEN_ENDPOINT
       - OIDC_OP_USER_ENDPOINT
       - "OIDC_RP_SCOPES=openid email profile User.Read"
+      - MICROSOFT_TENANT_ID
       - PLUGIN_AUTH_OIDC
       - PLUGIN_ICL=True
     volumes:
