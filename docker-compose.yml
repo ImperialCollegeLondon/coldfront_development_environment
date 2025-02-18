@@ -10,15 +10,15 @@ services:
     environment:
       - DEBUG=True
       - DB_URL=sqlite:////db/coldfront.db
-      - OIDC_OP_JWKS_ENDPOINT
-      - OIDC_RP_SIGN_ALGO
+      - OIDC_OP_JWKS_ENDPOINT=https://login.microsoftonline.com/2b897507-ee8c-4575-830b-4f8267c3d307/discovery/v2.0/keys
+      - OIDC_RP_SIGN_ALGO=RS256
       - OIDC_RP_CLIENT_ID
       - OIDC_RP_CLIENT_SECRET
-      - OIDC_OP_AUTHORIZATION_ENDPOINT
-      - OIDC_OP_TOKEN_ENDPOINT
-      - OIDC_OP_USER_ENDPOINT
+      - OIDC_OP_AUTHORIZATION_ENDPOINT=https://login.microsoftonline.com/2b897507-ee8c-4575-830b-4f8267c3d307/oauth2/v2.0/authorize
+      - OIDC_OP_TOKEN_ENDPOINT=https://login.microsoftonline.com/2b897507-ee8c-4575-830b-4f8267c3d307/oauth2/v2.0/token
+      - OIDC_OP_USER_ENDPOINT=https://graph.microsoft.com/oidc/userinfo
       - "OIDC_RP_SCOPES=openid email profile User.Read"
-      - MICROSOFT_TENANT_ID
+      - MICROSOFT_TENANT_ID=2b897507-ee8c-4575-830b-4f8267c3d307
       - PLUGIN_AUTH_OIDC
       - PLUGIN_ICL=True
     volumes:
