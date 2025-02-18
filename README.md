@@ -30,11 +30,8 @@ Additional configuration is provided in `local_settings.py` to work with Imperia
 Microsoft Entra tenant. Note that using this plugin with Imperial SSO depends on
 [imperial_coldfront_plugin] which provides a customised authentication backend.
 
-Using this plugin is optional and requires setting appropriate environment variables. If
-not using OIDC then local authentication is available. The required environment
-variables are described in [Coldfront Docs: OIDC] and are passed through to the Docker
-Compose setup from a `.env` file or if the variables are set in the host environment. To
-obtain appropriate values for development purposes just ask.
+Using this plugin is optional (see "Evironment Variables" section below).
+If not using OIDC then local authentication is available. 
 
 [mozilla_django_oidc]: https://mozilla-django-oidc.readthedocs.io
 [Coldfront Docs: OIDC]: https://coldfront.readthedocs.io/en/latest/config/#openid-connect-auth
@@ -49,6 +46,32 @@ reproducibility.
 [Coldfront Docs: Creating Plugins]: https://coldfront.readthedocs.io/en/latest/plugin/how_to_create_a_plugin/
 
 ## Getting Started
+
+### Cloning
+
+It is recommended to use `git clone --recursive` when obtaining this repository in order
+to get the `imperial_coldfront_plugin` submodule. If you don't do a recursive clone you
+must manually clone the plugin repository into the submodule directory.
+
+### Environment Variables
+
+Working with this project requires interaction with the Microsoft Graph API. This
+requires setting the environment variables `OIDC_RP_CLIENT_ID` and
+`OIDC_RP_CLIENT_SECRET`. Values for these can be obtained from the password safe
+(direct links - [OIDC_RP_CLIENT_ID] and [OIDC_RP_CLIENT_SECRET]). Ask Chris if you need
+access granted to these.
+
+[OIDC_RP_CLIENT_ID]: https://icsecpws.cc.ic.ac.uk:443/GetPassCard.cc?ACCOUNTID=456011&ORGN_NAME=MSP
+[OIDC_RP_CLIENT_SECRET]: https://icsecpws.cc.ic.ac.uk:443/GetPassCard.cc?ACCOUNTID=455711&ORGN_NAME=MSP
+
+In order to use the OIDC authentication method and login with your Imperial account you
+must also set the environment variable `PLUGIN_AUTH_OIDC=True`.
+
+The docker compose file will pass through the environment variables to the running
+containers if they are set in the host environment. Values can also be set in a `.env`
+file.
+
+### Running the app
 
 Docker Compose is used to create a reproducible and portable development environment. To
 launch Coldfront:
