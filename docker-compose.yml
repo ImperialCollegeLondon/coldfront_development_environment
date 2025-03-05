@@ -21,9 +21,10 @@ services:
       - MICROSOFT_TENANT_ID=2b897507-ee8c-4575-830b-4f8267c3d307
       - PLUGIN_AUTH_OIDC
       - PLUGIN_ICL=True
-      - GPFS_API_URL=https://gpfs-dev-1.hpc.ic.ac.uk/scalemgmt/v2/resource_type/
+      - GPFS_API_URL=https://gpfs-dev-1.hpc.ic.ac.uk/scalemgmt/v2/
       - GPFS_API_USERNAME
       - GPFS_API_PASSWORD
+      - GPFS_API_VERIFY=False
     volumes:
       - ./local_settings.py:/etc/coldfront/local_settings.py:ro
       - ./imperial_coldfront_plugin/:/usr/src/imperial_coldfront_plugin/
