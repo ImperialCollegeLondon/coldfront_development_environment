@@ -2,7 +2,8 @@ FROM python:3.11-slim
 
 ADD imperial_coldfront_plugin /usr/src/imperial_coldfront_plugin
 WORKDIR /usr/src/
-RUN pip install -r imperial_coldfront_plugin/requirements.txt && pip install -e imperial_coldfront_plugin
+RUN apt-get update && apt-get install -y python3-dev default-libmysqlclient-dev build-essential pkg-config
+RUN pip install -r imperial_coldfront_plugin/requirements.txt && pip install -e imperial_coldfront_plugin && pip install mysqlclient==2.2.7
 RUN mkdir /etc/coldfront
 ADD coldfront_overrides/urls.py /usr/local/lib/python3.11/site-packages/coldfront/config/urls.py
 ADD coldfront_overrides/settings.py /usr/local/lib/python3.11/site-packages/coldfront/config/settings.py
