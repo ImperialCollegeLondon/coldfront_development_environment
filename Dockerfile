@@ -9,6 +9,7 @@ ADD coldfront_overrides/settings.py /usr/local/lib/python3.11/site-packages/cold
 ADD coldfront_overrides/plugin_settings.py /usr/local/lib/python3.11/site-packages/coldfront/config/plugins/imperial.py
 ADD coldfront_overrides/authorized_navbar.html /usr/local/lib/python3.11/site-packages/coldfront/templates/common/authorized_navbar.html
 ADD coldfront_overrides/authorized_home.html /usr/local/lib/python3.11/site-packages/coldfront/templates/portal/authorized_home.html
+ADD coldfront_overrides/navbar_admin.html /usr/local/lib/python3.11/site-packages/coldfront/templates/common/navbar_admin.html
 
 RUN mkdir /db && chown nobody:nogroup /db
 VOLUME /db

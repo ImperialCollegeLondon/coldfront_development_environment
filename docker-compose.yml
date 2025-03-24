@@ -25,6 +25,11 @@ services:
       - GPFS_API_USERNAME
       - GPFS_API_PASSWORD
       - GPFS_API_VERIFY=False
+      - GPFS_API_FILESYSTEM_NAME=gpfs
+      - GPFS_API_FILESET_PATH=/ibm/
+      - LDAP_PASSWORD
+      - LDAP_USERNAME
+      - LDAP_URI
     volumes:
       - ./local_settings.py:/etc/coldfront/local_settings.py:ro
       - ./imperial_coldfront_plugin/:/usr/src/imperial_coldfront_plugin/
