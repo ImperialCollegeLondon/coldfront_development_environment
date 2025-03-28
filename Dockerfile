@@ -14,7 +14,8 @@ ADD coldfront_overrides/navbar_admin.html /usr/local/lib/python3.11/site-package
 
 RUN mkdir /db && chown nobody:nogroup /db
 VOLUME /db
-VOLUME /srv/coldcront/static
+RUN mkdir -p /srv/coldfront && chown nobody:nogroup /srv/coldfront
+VOLUME /srv/coldfront
 
 # imperial specific settings
 ADD local_settings.py /etc/coldfront/local_settings.py
