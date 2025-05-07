@@ -14,13 +14,10 @@
         <li id="navbar-home" class="nav-item active">
           <a class="nav-link" href="/">Home</a>
         </li>
-        <li id="navbar-center-summary" class="nav-item">
-          <a class="nav-link" href="{% url 'center-summary' %}">Center Summary</a>
-        </li>
         <li id="navbar-project-menu" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Project</a>
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Groups</a>
           <div class="dropdown-menu">
-            <a id="navbar-project" class="dropdown-item" href="{% url 'project-list' %}">Projects</a>
+            <a id="navbar-project" class="dropdown-item" href="{% url 'project-list' %}">Groups</a>
             <a id="navbar-allocation" class="dropdown-item" href="{% url 'allocation-list' %}">Allocations</a>
             <a id="navbar-resource" class="dropdown-item" href="{% url 'resource-list' %}">Resources</a>
             {% if settings.ALLOCATION_ACCOUNT_ENABLED  %}
@@ -31,7 +28,6 @@
             {% endif %}
           </div>
         </li>
-        {% include 'imperial_coldfront_plugin/group_menu.html' %}
         {% if request.user.is_superuser %}
           {% include 'common/navbar_admin.html' %}
         {% elif request.user.is_staff %}

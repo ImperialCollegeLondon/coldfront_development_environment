@@ -59,3 +59,5 @@ Q_CLUSTER = {
 }
 
 SECRET_KEY = "tetetetetetatotet"
+
+SETTINGS_EXPORT += ["DEBUG"]

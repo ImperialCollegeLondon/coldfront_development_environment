@@ -11,6 +11,14 @@ ADD coldfront_overrides/plugin_settings.py /usr/local/lib/python3.11/site-packag
 ADD coldfront_overrides/authorized_navbar.html /usr/local/lib/python3.11/site-packages/coldfront/templates/common/authorized_navbar.html
 ADD coldfront_overrides/authorized_home.html /usr/local/lib/python3.11/site-packages/coldfront/templates/portal/authorized_home.html
 ADD coldfront_overrides/navbar_admin.html /usr/local/lib/python3.11/site-packages/coldfront/templates/common/navbar_admin.html
+ADD coldfront_overrides/nonauthorized_navbar.html /usr/local/lib/python3.11/site-packages/coldfront/templates/common/nonauthorized_navbar.html
+ADD coldfront_overrides/project_detail.html /usr/local/lib/python3.11/site-packages/coldfront/templates/project/project_detail.html
+ADD coldfront_overrides/project_list.html /usr/local/lib/python3.11/site-packages/coldfront/templates/project/project_list.html
+ADD coldfront_overrides/project_user_detail.html /usr/local/lib/python3.11/site-packages/coldfront/templates/project/project_user_detail.html
+ADD coldfront_overrides/allocation_detail.html /usr/local/lib/python3.11/site-packages/coldfront/templates/allocation/allocation_detail.html
+ADD coldfront_overrides/project_add_users.html /usr/local/lib/python3.11/site-packages/coldfront/templates/project/project_add_users.html
+ADD coldfront_overrides/allocation_add_users.html /usr/local/lib/python3.11/site-packages/coldfront/templates/allocation/allocation_add_users.html
+ADD coldfront_overrides/allocation_remove_users.html /usr/local/lib/python3.11/site-packages/coldfront/templates/allocation/allocation_remove_users.html
 
 RUN mkdir /db && chown nobody:nogroup /db
 VOLUME /db
