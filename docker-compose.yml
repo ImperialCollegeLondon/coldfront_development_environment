@@ -6,6 +6,7 @@ services:
       - -c
       - |
         coldfront migrate
+        coldfront qcluster &
         coldfront runserver 0:8000
     environment:
       - DEBUG=True

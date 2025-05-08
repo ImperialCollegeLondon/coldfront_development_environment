@@ -51,7 +51,7 @@ Q_CLUSTER = {
     "bulk": 10,
     "orm": "default",
     "save_limit": 250,
-    "sync": DEBUG,
+    "sync": False,
     "ack_failures": True,
     "orm": "default",
     "catch_up": False,
