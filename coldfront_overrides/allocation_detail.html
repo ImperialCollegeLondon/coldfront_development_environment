@@ -186,6 +186,11 @@ Allocation Detail
             <i class="fas fa-minus" aria-hidden="true"></i> Delete Allocation Attributes
           </a>
         {% endif %}
+        {% if request.user.is_superuser or request.user == allocation.project.pi %}
+        <a class="btn btn-success" href="{% url 'imperial_coldfront_plugin:add_dart_id' allocation.pk %}" role="button">
+          <i class="fas fa-plus" aria-hidden="true"></i> Add Dart ID
+        </a>
+        {% endif %}
       </div>
     </div>
     <div class="card-body">
