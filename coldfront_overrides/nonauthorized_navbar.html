@@ -1,8 +1,15 @@
-{% include 'common/navbar_brand.html' %}
-{% load common_tags %} 
+{% load static %}
+{% load common_tags %}
+
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand d-block d-sm-none text-primary" href="#">ColdFront</a>
+  <div class="container-fluid">
+    <!-- Combined brand section -->
+    <div class="navbar-brand d-flex align-items-center">
+      <a href="/">
+        <img class="banner-logo" src="{% static 'common/images/logo.png' %}" alt="Imperial" style="height: 60px;">
+      </a>
+      <span class="banner-name text-white ml-2">{% settings_value 'CENTER_NAME' %}</span>
+    </div>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main">
       <span class="navbar-toggler-icon"></span>
@@ -20,13 +27,21 @@
           {% include 'common/navbar_help.html' %}
         {% endif %}
       </ul>
-      {% if settings.DEBUG%}
+      {% if settings.DEBUG %}
       <ul class="navbar-nav ml-auto">
-        <li id="navbar-login" class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt" aria-hidden="true"></i> Log In</a></li>
+        <li id="navbar-login" class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">
+            <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Log In
+          </a>
+        </li>
       </ul>
       {% else %}
       <ul class="navbar-nav ml-auto">
-        <li id="navbar-login" class="nav-item"><a class="nav-link" href="{% url 'oidc_authentication_init' %}?next={{request.GET.next}}"><i class="fas fa-sign-in-alt" aria-hidden="true"></i> Log In</a></li>
+        <li id="navbar-login" class="nav-item">
+          <a class="nav-link" href="{% url 'oidc_authentication_init' %}?next={{request.GET.next}}">
+            <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Log In
+          </a>
+        </li>
       </ul>      
       {% endif %}
     </div>
