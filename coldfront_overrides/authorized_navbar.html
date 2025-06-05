@@ -1,19 +1,14 @@
-{% load static %}
+{% include 'common/navbar_brand.html' %}
 {% load common_tags %}
 
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-<div class="container-fluid">
-    <!-- Combined brand section -->
-    <div class="navbar-brand d-flex align-items-center">
-      <a href="/">
-        <img class="banner-logo" src="{% static 'common/images/logo.png' %}" alt="Imperial" style="height: 40px;">
-      </a>
-      <span class="banner-name text-white ml-2">{% settings_value 'CENTER_NAME' %}</span>
-    </div>
+  <div class="container">
+    <a class="navbar-brand d-block d-sm-none text-primary" href="#">ColdFront</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="navbar-collapse collapse" id="navbar-main">
       <ul class="navbar-nav">
         <li id="navbar-home" class="nav-item active">
