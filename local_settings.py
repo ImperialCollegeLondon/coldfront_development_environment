@@ -63,3 +63,5 @@ SECRET_KEY = "tetetetetetatotet"
 SETTINGS_EXPORT += ["DEBUG"]
 
 ALLOCATION_ENABLE_ALLOCATION_RENEWAL = False
+
+CENTER_NAME = "Research Computing Self-Service"
