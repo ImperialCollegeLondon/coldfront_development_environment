@@ -68,7 +68,7 @@ Add Users to Group
 
     var pk = "{{ pk }}"
     $.ajax({
-        url : "/project/" + pk + "/add-users-search-results/", // the endpoint
+        url : "{% url 'imperial_coldfront_plugin:project-add-users-search-results' project.pk %}",
         type : "POST", // http method
         data : { 
           q : q, 

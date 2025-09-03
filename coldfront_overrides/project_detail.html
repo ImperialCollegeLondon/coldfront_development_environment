@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 {% load humanize %}
 {% load static %}
+{% load shortname %}
 
 
 {% block title %}
@@ -172,6 +173,7 @@ Group Detail
             <tr>
               <th scope="col">Resource Name</th>
               <th scope="col">Resource Type</th>
+              <th scope="col">Shortname</th>
               <th scope="col">Information</th>
               <th scope="col">Status</th>
               <th scope="col">End Date</th>
@@ -183,6 +185,7 @@ Group Detail
             <tr>
               <td>{{ allocation.get_parent_resource.name }}</td>
               <td>{{ allocation.get_parent_resource.resource_type.name }}</td>
+              <td>{% allocation_shortname allocation %}</td>
               {% if allocation.get_information != '' %}
               <td class="text-nowrap">{{allocation.get_information}}</td>
               {% else %}

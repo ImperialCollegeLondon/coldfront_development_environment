@@ -1,6 +1,7 @@
 {% extends "common/base.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load shortname %}
 
 
 {% block title %}
@@ -14,9 +15,9 @@ Allocation Detail
     This is a allocation from an archived group! You cannot make any changes.
   </div>
 {% endif %}
-
+{% allocation_shortname allocation as shortname %}
 <div class="mb-3">
-  <h2>Allocation Detail</h2>
+  <h2>Allocation Detail{% if shortname %} - {{shortname}}{%endif%}</h2>
   <hr>
 </div>
 
