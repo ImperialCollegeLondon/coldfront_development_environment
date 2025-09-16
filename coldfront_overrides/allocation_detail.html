@@ -72,10 +72,10 @@ Allocation Detail
               <td>{{ allocation.quantity }}</td>
             </tr>
           {% endif %}
-          <!-- <tr>
+           <tr>
             <th scope="row" class="text-nowrap">Justification:</th>
             <td>{{ allocation.justification }}</td>
-          </tr> -->
+          </tr>
           <tr>
             <th scope="row" class="text-nowrap">Status:</th>
             <td>
@@ -142,13 +142,13 @@ Allocation Detail
                 {{ form.is_locked }}
               </td>
             {% else %}
-              {% if allocation.is_locked %}
+              <!--{% if allocation.is_locked %}
                 <th scope="row" class="text-nowrap">Locked</th>
                 <td><i class="fas fa-lock" aria-hidden="true"></i></td>
               {% else %}
                 <th scope="row" class="text-nowrap">Unlocked</th>
                 <td><i class="fas fa-lock-open" aria-hidden="true"></i></td>
-              {% endif %}
+              {% endif %}-->
             {% endif %}
           </tr>
           {% if request.user.is_superuser or request.user.is_staff %}
