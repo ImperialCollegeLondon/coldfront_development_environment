@@ -1,9 +1,25 @@
 FROM python:3.11-slim
 WORKDIR /usr/src/
 RUN apt-get update && apt-get install -y python3-dev default-libmysqlclient-dev build-essential pkg-config
-ADD imperial_coldfront_plugin/requirements.txt /usr/src/imperial_coldfront_plugin/requirements.txt
-RUN pip install -r imperial_coldfront_plugin/requirements.txt && pip install mysqlclient==2.2.7
+
+ADD imperial_coldfront_plugin /usr/src/imperial_coldfront_plugin
+ADD requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
+
+# support sqlite for development
+RUN mkdir /db && chown nobody:nogroup /db
+VOLUME /db
+
+# static files directory
+RUN mkdir -p /srv/coldfront && chown nobody:nogroup /srv/coldfront
+VOLUME /srv/coldfront
+
+# imperial specific settings
 RUN mkdir /etc/coldfront
+ADD local_settings.py /etc/coldfront/local_settings.py
+USER nobody
+
+# template overrides
 ADD coldfront_overrides/urls.py /usr/local/lib/python3.11/site-packages/coldfront/config/urls.py
 ADD coldfront_overrides/settings.py /usr/local/lib/python3.11/site-packages/coldfront/config/settings.py
 ADD coldfront_overrides/plugin_settings.py /usr/local/lib/python3.11/site-packages/coldfront/config/plugins/imperial.py
@@ -22,14 +38,3 @@ ADD coldfront_overrides/allocation_remove_users.html /usr/local/lib/python3.11/s
 ADD coldfront_overrides/static/ /usr/share/coldfront/site/static/
 ADD coldfront_overrides/navbar_brand.html /usr/local/lib/python3.11/site-packages/coldfront/templates/common/navbar_brand.html
 ADD coldfront_overrides/allocation_list.html /usr/local/lib/python3.11/site-packages/coldfront/templates/allocation/allocation_list.html
-
-ADD imperial_coldfront_plugin /usr/src/imperial_coldfront_plugin
-RUN pip install -e imperial_coldfront_plugin
-RUN mkdir /db && chown nobody:nogroup /db
-VOLUME /db
-RUN mkdir -p /srv/coldfront && chown nobody:nogroup /srv/coldfront
-VOLUME /srv/coldfront
-
-# imperial specific settings
-ADD local_settings.py /etc/coldfront/local_settings.py
-USER nobody

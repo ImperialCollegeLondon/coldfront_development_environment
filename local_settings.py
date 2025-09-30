@@ -42,20 +42,21 @@ PLUGIN_ICL = True
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+
 Q_CLUSTER = {
     "name": "Coldfront",
     "workers": 1,
-    "timeout": 60,
-    "retry": 60,
+    "timeout": 10,
+    "max_attempts": 1,
     "queue_limit": 50,
-    "bulk": 10,
     "orm": "default",
     "save_limit": 250,
     "sync": False,
     "ack_failures": True,
-    "orm": "default",
     "catch_up": False,
     "label": "Django Q",
+    "scheduler": False,  # do not run scheduled jobs in dev
+    "error_reporter": {"email": {}},
 }
 
 SECRET_KEY = "tetetetetetatotet"
@@ -64,4 +65,4 @@ SETTINGS_EXPORT += ["DEBUG"]
 
 ALLOCATION_ENABLE_ALLOCATION_RENEWAL = False
 
-CENTER_NAME = "Research Computing Self-Service"
+CENTER_NAME = "Research Computing Access Portal"
