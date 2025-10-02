@@ -4,6 +4,7 @@ MUST BE EXTENDED FOR PRODUCTION DEPLOYMENT.
 """
 
 from coldfront.config.env import ENV
+from coldfront.config.logging import LOGGING
 from coldfront.config.base import DEBUG
 
 # -------------
@@ -56,7 +57,6 @@ Q_CLUSTER = {
     "catch_up": False,
     "label": "Django Q",
     "scheduler": False,  # do not run scheduled jobs in dev
-    "error_reporter": {"email": {}},
 }
 
 SECRET_KEY = "tetetetetetatotet"
@@ -66,3 +66,7 @@ SETTINGS_EXPORT += ["DEBUG"]
 ALLOCATION_ENABLE_ALLOCATION_RENEWAL = False
 
 CENTER_NAME = "Research Computing Access Portal"
+
+# remove the coldfront django logger configuration so that the AdminEmailHandler
+# works as expected and emails are sent to site admins on errors when DEBUG=False
+LOGGING["loggers"].pop("django")
