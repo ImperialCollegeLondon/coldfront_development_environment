@@ -1,4 +1,4 @@
 -e ./imperial_coldfront_plugin
 mozilla_django_oidc
 mysqlclient
-gunicorn
+uwsgi

@@ -146,8 +146,6 @@ future==1.0.0
     #   -c imperial_coldfront_plugin/requirements.txt
     #   coldfront
     #   doi2bib
-gunicorn==23.0.0
-    # via -r requirements.in
 humanize==4.9.0
     # via
     #   -c imperial_coldfront_plugin/requirements.txt
@@ -172,8 +170,6 @@ mozilla-django-oidc==4.0.1
     #   imperial-coldfront-plugin
 mysqlclient==2.2.7
     # via -r requirements.in
-packaging==25.0
-    # via gunicorn
 pyasn1==0.6.1
     # via
     #   -c imperial_coldfront_plugin/requirements.txt
@@ -257,6 +253,8 @@ urllib3==2.2.1
     #   -c imperial_coldfront_plugin/requirements.txt
     #   coldfront
     #   requests
+uwsgi==2.0.30
+    # via -r requirements.in
 wcwidth==0.2.13
     # via
     #   -c imperial_coldfront_plugin/requirements.txt
