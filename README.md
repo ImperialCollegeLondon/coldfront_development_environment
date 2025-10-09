@@ -110,3 +110,25 @@ compose restart app`) for changes to be registered.
 
 [Coldfront]: https://coldfront.readthedocs.io/en/latest/
 [imperial_coldfront_plugin]: https://github.com/ImperialCollegeLondon/imperial_coldfront_plugin/tree/main
+
+## Coldfront Customisations
+
+This repository directly customises various aspects of Coldfront via settings and overrides. We:
+
+- Provides `local_settings.py` this provides some custom settings for the Imperial
+  Coldfront deployment but is only suitable for use in development. This file is
+  expected to be extended in production.
+
+- Override `coldfront/config/urls.py` in order to include the urls defined by our
+  plugin.
+
+- Override `coldfront/config/settings.py` and adds
+  `coldfront/config/plugins/imperial.py` in order to load the settings defined by our
+  plugin.
+
+- Override a number of html templates in order to:
+  - hide some Coldfront functionality from end users.
+  - provide custom Imperial branding.
+  - directly use OIDC authentication in production.
+  - replace Coldfront's terminology of "Projects" with "Groups".
+  - include display of allocation shortnames in summary pages.
