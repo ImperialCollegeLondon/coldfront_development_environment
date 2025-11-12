@@ -1,0 +1,14 @@
+{% extends "common/base.html" %}
+
+{% block title %}
+Add Users to Group
+{% endblock %}
+
+
+{% block content %}
+{% include 'imperial_coldfront_plugin/overrides/project_add_users.html' %}
+{% endblock %}
+{% block javascript %}
+  {{ block.super }}
+  {% include 'imperial_coldfront_plugin/overrides/project_add_users.js.html' %}
+{% endblock %}
