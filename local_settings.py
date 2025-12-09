@@ -61,7 +61,7 @@ Q_CLUSTER = {
 
 SECRET_KEY = "tetetetetetatotet"
 
-SETTINGS_EXPORT += ["DEBUG"]
+SETTINGS_EXPORT += ["DEBUG", "SHOW_CREDIT_BALANCE"]
 
 ALLOCATION_ENABLE_ALLOCATION_RENEWAL = False
 
@@ -70,3 +70,4 @@ CENTER_NAME = "Research Computing Access Portal"
 # remove the coldfront django logger configuration so that the AdminEmailHandler
 # works as expected and emails are sent to site admins on errors when DEBUG=False
 LOGGING["loggers"].pop("django")
+
