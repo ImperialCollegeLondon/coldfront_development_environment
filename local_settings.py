@@ -47,7 +47,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 Q_CLUSTER = {
     "name": "Coldfront",
     "workers": 1,
-    "timeout": 10,
+    "timeout": 600,
     "max_attempts": 1,
     "queue_limit": 50,
     "orm": "default",
