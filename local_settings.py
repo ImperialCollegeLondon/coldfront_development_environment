@@ -71,3 +71,27 @@ CENTER_NAME = "Research Computing Access Portal"
 # works as expected and emails are sent to site admins on errors when DEBUG=False
 LOGGING["loggers"].pop("django")
 
+SERVER_EMAIL = "noreply@imperial.ac.uk"
+DEFAULT_FROM_EMAIL = SERVER_EMAIL
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+        "mail_admins": {
+            "class": "django.utils.log.AdminEmailHandler",
+            "level": "ERROR",
+        },
+    },
+    "loggers": {
+        # configure the root logger to use both console and mail_admins handlers
+        "": { 
+            "handlers": ["console", "mail_admins"],
+            "level": "DEBUG" if DEBUG else "ERROR",
+            "propagate": True,
+        },
+    },
+}
