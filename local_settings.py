@@ -3,9 +3,9 @@
 MUST BE EXTENDED FOR PRODUCTION DEPLOYMENT.
 """
 
+from coldfront.config.base import DEBUG
 from coldfront.config.env import ENV
 from coldfront.config.logging import LOGGING
-from coldfront.config.base import DEBUG
 
 # -------------
 # AUTH SETTINGS
@@ -61,7 +61,13 @@ Q_CLUSTER = {
 
 SECRET_KEY = "tetetetetetatotet"
 
-SETTINGS_EXPORT += ["DEBUG", "SHOW_CREDIT_BALANCE", "ENABLE_RDF_ALLOCATION_LIFECYCLE"]
+SETTINGS_EXPORT += [
+    "DEBUG",
+    "SHOW_CREDIT_BALANCE",
+    "ENABLE_RDF_ALLOCATION_LIFECYCLE",
+    "ENABLE_USER_GROUP_CREATION",
+    "RDF_ASK_TICKET_URL",
+]
 
 ALLOCATION_ENABLE_ALLOCATION_RENEWAL = False
 
