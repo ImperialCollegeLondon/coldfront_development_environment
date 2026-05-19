@@ -33,7 +33,6 @@ ADD coldfront_overrides/templates/project_list.html /usr/local/lib/python3.11/si
 ADD coldfront_overrides/templates/project_user_detail.html /usr/local/lib/python3.11/site-packages/coldfront/templates/project/project_user_detail.html
 ADD coldfront_overrides/templates/allocation_detail.html /usr/local/lib/python3.11/site-packages/coldfront/templates/allocation/allocation_detail.html
 ADD coldfront_overrides/templates/project_add_users.html /usr/local/lib/python3.11/site-packages/coldfront/templates/project/project_add_users.html
-ADD coldfront_overrides/templates/allocation_add_users.html /usr/local/lib/python3.11/site-packages/coldfront/templates/allocation/allocation_add_users.html
 ADD coldfront_overrides/templates/allocation_remove_users.html /usr/local/lib/python3.11/site-packages/coldfront/templates/allocation/allocation_remove_users.html
 ADD coldfront_overrides/static/ /usr/share/coldfront/site/static/
 ADD coldfront_overrides/templates/navbar_brand.html /usr/local/lib/python3.11/site-packages/coldfront/templates/common/navbar_brand.html
