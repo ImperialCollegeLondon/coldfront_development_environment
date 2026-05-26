@@ -77,3 +77,4 @@ CENTER_NAME = "Research Computing Access Portal"
 # works as expected and emails are sent to site admins on errors when DEBUG=False
 LOGGING["loggers"].pop("django")
 
+EMAIL_SUBJECT_PREFIX = "[RECAP] "
