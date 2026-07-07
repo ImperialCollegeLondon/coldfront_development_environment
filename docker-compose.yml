@@ -37,6 +37,7 @@ services:
       - ENABLE_USER_GROUP_CREATION
       - RDF_ASK_TICKET_URL
       - RDF_ACCESS_POLICY_URL
+      - ENABLE_RDF_ALLOCATION_AUTO_CREDIT
     volumes:
       - ./local_settings.py:/etc/coldfront/local_settings.py:ro
       - ./imperial_coldfront_plugin/:/usr/src/imperial_coldfront_plugin/
