@@ -96,6 +96,40 @@ docker compose exec app coldfront createsuperuser
 
 You should now be able to access Coldfront at <http://localhost:8000>.
 
+### Local LDAP
+
+Docker Compose starts a local OpenLDAP service by default. Enable the app's local LDAP
+configuration with:
+
+```bash
+ENABLE_LOCAL_LDAP=True docker compose up
+```
+
+When enabled, this provides the subset of the Active Directory schema used by the
+plugin, allowing allocation and membership workflows to use a real LDAP service
+without accessing Imperial infrastructure. Without `ENABLE_LOCAL_LDAP=True`, no local
+LDAP configuration is passed to the plugin; explicitly supplied `LDAP_*` environment
+variables continue to configure an external directory.
+
+The directory contains fictional users only:
+
+| Username | Name |
+| --- | --- |
+| `ada.lovelace` | Ada Lovelace |
+| `grace.hopper` | Grace Hopper |
+| `alan.turing` | Alan Turing |
+
+To perform any operations with real Imperial user accounts (e.g. adding a user to a
+group) you must first create a user entry in the local LDAP directory with their
+username:
+
+```bash
+sh scripts/add-local-ldap-user.sh <USERNAME>
+```
+
+LDAP data persists in a Docker volume; use `docker compose down --volumes` to recreate
+the fixture data and development database.
+
 ## Development
 
 This repository aims to support interactive testing of plugins and Coldfront
