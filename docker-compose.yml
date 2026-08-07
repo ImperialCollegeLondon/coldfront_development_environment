@@ -9,8 +9,8 @@ services:
           export LDAP_PASSWORD=coldfront-local
           export LDAP_USERNAME=cn=admin,dc=ic,dc=ac,dc=uk
           export LDAP_URI=ldap://ldap:389
-          export LDAP_USER_OU=ou=Users,ou=Imperial College (London),dc=ic,dc=ac,dc=uk
-          export LDAP_GROUP_OU=ou=RCS,ou=Groups,ou=Imperial College (London),dc=ic,dc=ac,dc=uk
+          export LDAP_USER_OU='ou=Users,ou=Imperial College (London),dc=ic,dc=ac,dc=uk'
+          export LDAP_GROUP_OU='ou=RCS,ou=Groups,ou=Imperial College (London),dc=ic,dc=ac,dc=uk'
         fi
         coldfront migrate
         coldfront qcluster &
