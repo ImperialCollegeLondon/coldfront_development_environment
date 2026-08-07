@@ -1,0 +1,31 @@
+services:
+  app:
+    extends:
+      file: docker-compose.yml
+      service: app
+    environment:
+      LDAP_PASSWORD: coldfront-local
+      LDAP_USERNAME: cn=admin,dc=ic,dc=ac,dc=uk
+      LDAP_URI: ldap://ldap:389
+      LDAP_USER_OU: ou=Users,ou=Imperial College (London),dc=ic,dc=ac,dc=uk
+      LDAP_GROUP_OU: ou=RCS,ou=Groups,ou=Imperial College (London),dc=ic,dc=ac,dc=uk
+    depends_on:
+      ldap:
+        condition: service_healthy
+
+  ldap:
+    build: ./openldap
+    environment:
+      LDAP_ADMIN_PASSWORD: coldfront-local
+    volumes:
+      - ldap:/var/lib/ldap
+    healthcheck:
+      test: ["CMD", "ldapsearch", "-x", "-H", "ldap://localhost:389", "-D", "cn=admin,dc=ic,dc=ac,dc=uk", "-w", "coldfront-local", "-b", "dc=ic,dc=ac,dc=uk", "-s", "base"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+
+volumes:
+  db:
+  ldap:

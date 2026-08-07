@@ -1,0 +1,67 @@
+dn: dc=ic,dc=ac,dc=uk
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: Imperial College London
+dc: ic
+
+dn: ou=Imperial College (London),dc=ic,dc=ac,dc=uk
+objectClass: top
+objectClass: organizationalUnit
+ou: Imperial College (London)
+
+dn: ou=Users,ou=Imperial College (London),dc=ic,dc=ac,dc=uk
+objectClass: top
+objectClass: organizationalUnit
+ou: Users
+
+dn: ou=Groups,ou=Imperial College (London),dc=ic,dc=ac,dc=uk
+objectClass: top
+objectClass: organizationalUnit
+ou: Groups
+
+dn: ou=RCS,ou=Groups,ou=Imperial College (London),dc=ic,dc=ac,dc=uk
+objectClass: top
+objectClass: organizationalUnit
+ou: RCS
+
+dn: cn=ada.lovelace,ou=Users,ou=Imperial College (London),dc=ic,dc=ac,dc=uk
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: ada.lovelace
+sn: Lovelace
+givenName: Ada
+mail: ada.lovelace@example.test
+uid: ada.lovelace
+
+dn: cn=grace.hopper,ou=Users,ou=Imperial College (London),dc=ic,dc=ac,dc=uk
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: grace.hopper
+sn: Hopper
+givenName: Grace
+mail: grace.hopper@example.test
+uid: grace.hopper
+
+dn: cn=alan.turing,ou=Users,ou=Imperial College (London),dc=ic,dc=ac,dc=uk
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: alan.turing
+sn: Turing
+givenName: Alan
+mail: alan.turing@example.test
+uid: alan.turing
+
+dn: cn=hx2dev-users,ou=RCS,ou=Groups,ou=Imperial College (London),dc=ic,dc=ac,dc=uk
+objectClass: top
+objectClass: group
+cn: hx2dev-users
+gidNumber: 1031406
+groupType: -2147483646
+sAMAccountName: hx2dev-users
