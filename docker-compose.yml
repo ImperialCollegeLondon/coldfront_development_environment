@@ -5,13 +5,6 @@ services:
       - bash
       - -c
       - |
-        if [ "${ENABLE_LOCAL_LDAP:-}" = "True" ]; then
-          export LDAP_PASSWORD=coldfront-local
-          export LDAP_USERNAME=cn=admin,dc=ic,dc=ac,dc=uk
-          export LDAP_URI=ldap://ldap:389
-          export LDAP_USER_OU='ou=Users,ou=Imperial College (London),dc=ic,dc=ac,dc=uk'
-          export LDAP_GROUP_OU='ou=RCS,ou=Groups,ou=Imperial College (London),dc=ic,dc=ac,dc=uk'
-        fi
         coldfront migrate
         coldfront qcluster &
         coldfront runserver 0:8000
@@ -36,12 +29,9 @@ services:
       - GPFS_FILESYSTEM_NAME=gpfs
       - GPFS_FILESYSTEM_MOUNT_PATH=/ibm
       - GPFS_FILESYSTEM_TOP_LEVEL_DIRECTORIES=
-      - ENABLE_LOCAL_LDAP
       - LDAP_PASSWORD
       - LDAP_USERNAME
       - LDAP_URI
-      - LDAP_USER_OU
-      - LDAP_GROUP_OU
       - SHOW_CREDIT_BALANCE
       - ENABLE_RDF_ALLOCATION_LIFECYCLE
       - ENABLE_USER_GROUP_CREATION
@@ -54,23 +44,7 @@ services:
       - ./coldfront_overrides/static/:/usr/share/coldfront/site/static/
       - ./:/usr/src/app/
       - db:/db
-    depends_on:
-      ldap:
-        condition: service_healthy
     ports:
       - 127.0.0.1:8000:8000
-  ldap:
-    build: ./openldap
-    environment:
-      LDAP_ADMIN_PASSWORD: coldfront-local
-    volumes:
-      - ldap:/var/lib/ldap
-    healthcheck:
-      test: ["CMD", "ldapsearch", "-x", "-H", "ldap://localhost:389", "-D", "cn=admin,dc=ic,dc=ac,dc=uk", "-w", "coldfront-local", "-b", "dc=ic,dc=ac,dc=uk", "-s", "base"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
-      start_period: 5s
 volumes:
   db:
-  ldap:

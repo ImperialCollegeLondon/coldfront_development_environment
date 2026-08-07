@@ -4,15 +4,6 @@ This directory defines the local LDAP service used by the development Compose st
 It emulates only the Active Directory schema surface used by
 `imperial_coldfront_plugin`; it does not contain real directory data.
 
-Enable the app's local LDAP integration with:
-
-```bash
-ENABLE_LOCAL_LDAP=True docker compose up
-```
-
-The LDAP container starts even when this setting is absent, but the plugin receives no
-local LDAP configuration unless it is enabled.
-
 ## Components
 
 | Path | Purpose |

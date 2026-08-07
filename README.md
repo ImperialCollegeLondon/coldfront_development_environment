@@ -98,18 +98,20 @@ You should now be able to access Coldfront at <http://localhost:8000>.
 
 ### Local LDAP
 
-Docker Compose starts a local OpenLDAP service by default. Enable the app's local LDAP
-configuration with:
+The local LDAP service is optional. To enable it, use the
+`docker-compose.local-ldap.yml` configuration file:
 
 ```bash
-ENABLE_LOCAL_LDAP=True docker compose up
+docker compose -f docker-compose.local-ldap.yml up
 ```
 
-When enabled, this provides the subset of the Active Directory schema used by the
-plugin, allowing allocation and membership workflows to use a real LDAP service
-without accessing Imperial infrastructure. Without `ENABLE_LOCAL_LDAP=True`, no local
-LDAP configuration is passed to the plugin; explicitly supplied `LDAP_*` environment
-variables continue to configure an external directory.
+To automate selection of the compose configuration you can set
+`COMPOSE_FILE=docker-compose.local-ldap.yml` via export or in a `.env`.
+
+This supplies the app with local LDAP settings and starts the local service. It also
+applies to `docker compose run`, `docker compose exec`, and the LDAP helper scripts.
+Without the supplementary file, explicitly supplied `LDAP_*` environment variables
+continue to configure an external directory.
 
 The directory contains fictional users only:
 
