@@ -1,0 +1,22 @@
+include /etc/ldap/schema/core.schema
+include /etc/ldap/schema/cosine.schema
+include /etc/ldap/schema/inetorgperson.schema
+include /etc/ldap/schema/nis.schema
+include /etc/ldap/schema/imperial-ad.schema
+
+pidfile /run/slapd/slapd.pid
+argsfile /run/slapd/slapd.args
+
+modulepath /usr/lib/ldap
+moduleload back_mdb
+
+database mdb
+maxsize 1073741824
+suffix "dc=ic,dc=ac,dc=uk"
+rootdn "cn=admin,dc=ic,dc=ac,dc=uk"
+rootpw __LDAP_ADMIN_PASSWORD_HASH__
+directory /var/lib/ldap
+
+access to *
+    by dn.exact="cn=admin,dc=ic,dc=ac,dc=uk" manage
+    by * read
